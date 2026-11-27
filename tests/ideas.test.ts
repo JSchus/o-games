@@ -107,7 +107,7 @@ describe("the review email", () => {
 });
 
 describe("sending an idea", () => {
-  let sent: { to: string; subject: string; text: string }[];
+  let sent: { to: string[]; subject: string; text: string }[];
   beforeEach(() => {
     vi.spyOn(console, "log").mockImplementation(() => {});
     log.rows = [];
@@ -125,7 +125,7 @@ describe("sending an idea", () => {
     expect(log.rows).toHaveLength(1);
     expect(log.rows[0]).toMatchObject({ emailed: true, row: { kind: "racing", title: "Dragon Drift", deviceId: DEVICE } });
     expect(sent).toHaveLength(1);
-    expect(sent[0]!.to).toBe("info@companychicago.com");
+    expect(sent[0]!.to).toEqual(["info@companychicago.com", "jeff@jeffschuster.com", "jeffsgotmilk@gmail.com"]);
   });
 
   it("still keeps the idea when the email fails", async () => {
