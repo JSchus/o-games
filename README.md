@@ -25,4 +25,4 @@ All optional; set them in Vercel. Without them the arcade works and the idea box
 | `DATABASE_URL` | Neon Postgres: the game-idea log. Migrations run on production builds. |
 | `RESEND_API_KEY` | Emails new game ideas (sending access, domain `mail.schuster.me`). |
 | `IDEAS_EMAIL_FROM` | Sender of idea emails (default `O Games <ideas@mail.schuster.me>`). |
-| `IDEAS_EMAIL_TO` | Who reviews ideas (default info@companychicago.com). |
+| `IDEAS_EMAIL_TO` | Who reviews ideas: one address or several, separated by commas (default info@companychicago.com, jeff@jeffschuster.com, jeffsgotmilk@gmail.com). |

@@ -3,7 +3,7 @@ import { env } from "@/lib/env";
 
 /** Sends plain-text email through Resend's HTTPS API (no SDK). */
 export interface Mailer {
-  send(mail: { to: string; subject: string; text: string }): Promise<void>;
+  send(mail: { to: string[]; subject: string; text: string }): Promise<void>;
 }
 
 class ResendMailer implements Mailer {
@@ -11,11 +11,11 @@ class ResendMailer implements Mailer {
     private readonly key: string,
     private readonly from: string,
   ) {}
-  async send(mail: { to: string; subject: string; text: string }) {
+  async send(mail: { to: string[]; subject: string; text: string }) {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { Authorization: `Bearer ${this.key}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ from: this.from, to: [mail.to], subject: mail.subject, text: mail.text }),
+      body: JSON.stringify({ from: this.from, to: mail.to, subject: mail.subject, text: mail.text }),
       signal: AbortSignal.timeout(6000),
     });
     if (!res.ok) {

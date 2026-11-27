@@ -10,7 +10,7 @@ A small public arcade of kids' games, served at **https://schuster.me/o-games**.
 ## Stack
 - Next.js 15 with `basePath: "/o-games"`. Arcade page `app/page.tsx` (shows "No games yet!" while `lib/games.ts` is empty).
 - Each game is static files in `public/<slug>/` (`index.html`, `style.css`, `logic.js` pure rules, `game.js` screens) plus one entry in `lib/games.ts`. `next.config.ts` rewrites `/o-games/<slug>` to its `index.html`, so asset paths in `index.html` must be absolute (`/o-games/<slug>/…`). Slugs `api` and `create` are taken.
-- "Create a new game" (`app/create/`, `app/api/ideas`): a lesson per visit (`lib/lessons.ts`), 4 questions (`lib/ideas.ts`), then the idea is logged in `game_ideas` (Drizzle, `drizzle/`) and emailed for review via Resend (`RESEND_API_KEY`) to `IDEAS_EMAIL_TO` (default info@companychicago.com).
+- "Create a new game" (`app/create/`, `app/api/ideas`): a lesson per visit (`lib/lessons.ts`), 4 questions (`lib/ideas.ts`), then the idea is logged in `game_ideas` (Drizzle, `drizzle/`) and emailed for review via Resend (`RESEND_API_KEY`) to `IDEAS_EMAIL_TO` (default info@companychicago.com, jeff@jeffschuster.com and jeffsgotmilk@gmail.com; comma-separated).
 
 ## Hard rules
 - Never ask for, print or commit secrets (`DATABASE_URL`, `RESEND_API_KEY`). John sets them in Vercel.

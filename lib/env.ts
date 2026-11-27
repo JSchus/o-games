@@ -13,8 +13,12 @@ const schema = z.object({
   RESEND_API_KEY: z.string().optional(),
   /** Sender of the idea emails; must be on a domain verified in Resend. */
   IDEAS_EMAIL_FROM: z.string().default("O Games <ideas@mail.schuster.me>"),
-  /** Who reviews new game ideas. */
-  IDEAS_EMAIL_TO: z.string().email().default("info@companychicago.com"),
+  /** Who reviews new game ideas: one address, or several separated by commas. */
+  IDEAS_EMAIL_TO: z
+    .string()
+    .default("info@companychicago.com, jeff@jeffschuster.com, jeffsgotmilk@gmail.com")
+    .transform((list) => list.split(",").map((a) => a.trim()).filter(Boolean))
+    .pipe(z.array(z.string().email()).min(1).max(50)),
 });
 
 export type Env = z.infer<typeof schema>;
