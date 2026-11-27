@@ -19,4 +19,29 @@ export function gameHref(g: Game): string {
   return g.url ?? `/o-games/${g.slug}`;
 }
 
-export const GAMES: Game[] = [];
+export const GAMES: Game[] = [
+  {
+    slug: "goat-baseball",
+    title: "GOAT Baseball",
+    blurb: "Step up to the plate, swing for the fences and become the greatest of all time!",
+    emoji: "⚾",
+    added: "2026-11-26",
+    url: "https://goat-baseball-play-20261126.companychicago.chatgpt.site/",
+  },
+  {
+    slug: "mallkeeper",
+    title: "Mallkeeper: Everything Store",
+    blurb: "Run a store that sells everything. Stock the shelves, help shoppers and grow your mall!",
+    emoji: "🛍️",
+    added: "2026-11-26",
+    url: "https://mallkeeper-everything-store-20261126.companychicago.chatgpt.site/",
+  },
+  {
+    slug: "block-meadow",
+    title: "Block Meadow",
+    blurb: "Build and explore in a world of blocks and meadows.",
+    emoji: "🌼",
+    added: "2026-11-26",
+    url: "https://block-meadow-play-20261126.companychicago.chatgpt.site/",
+  },
+];

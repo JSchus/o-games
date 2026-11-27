@@ -12,7 +12,8 @@ a { color: inherit; }
 .arcade .logo { font-size: 3rem; }
 .dim { opacity: 0.75; margin: 0; }
 .games { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-.games a { display: grid; gap: 12px; padding: 20px; border-radius: 16px; background: #221b45; box-shadow: 0 8px 24px #0008; text-decoration: none; transition: transform 0.15s; }
+.games li { display: grid; }
+.games a { display: grid; grid-template-rows: auto auto 1fr auto; align-items: start; gap: 12px; padding: 20px; border-radius: 16px; background: #221b45; box-shadow: 0 8px 24px #0008; text-decoration: none; transition: transform 0.15s; }
 .games a:hover { transform: translateY(-4px); }
 .empty { display: grid; gap: 12px; justify-items: center; text-align: center; padding: 28px 20px; border-radius: 16px; background: #221b45; box-shadow: 0 8px 24px #0008; }
 .empty h2 { margin: 0; font-size: 1.5rem; }
